@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="he">
+   <head>
+      <meta charset="UTF-8">
+      <title>
+         {%if request.args.get('title') is none %}
+            דוגמה למסך בקשת דירוג אשראי
+         {% else %}
+            {{request.args.get('title')}}
+         {% endif %}
+      </title>
+      <link rel="stylesheet" href="/static/css/normalize.css">
+      <link rel="stylesheet" href="/static/css/main.css">
+      <link rel="stylesheet" href="/static/css/datepicker.min.css">
+      <link rel="stylesheet" href="/static/css/select2.min.css">
+      <link rel="stylesheet" href="/static/css/flag-icon.min.css">
+      <script src="/static/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+      <script src="/static/js/fields.js" type="text/javascript"></script>
+      <script src="/static/js/main.js" type="text/javascript"></script>
+      <script src="/static/js/datepicker.min.js" type="text/javascript"></script>
+      <script src="/static/js/select2.min.js" type="text/javascript"></script>
+      <script src="/static/js/i18n/he.js" type="text/javascript"></script>
+   </head>
+   <body>
+      <div id="DIV_7" style="float: right; margin-right:50px;">
+         <div id="DIV_8">
+            <img src="/static/images/fibi_logo.png"/>
+         </div>
+         <div id="DIV_21">
+            <h5>פרטי הבקשה</h5>
+            <div style="white-space: normal; width: 100%;">
+               <span id="lbl_RequestType" class="label">סוג הבקשה</span>
+               <label class="rfldlbl">
+               <input type="radio" name="RequestType" value="cwa" id="RequestType0" class="rfld" checked/>חיווי אשראי
+               </label>
+               <label class="rfldlbl">
+               <input type="radio" name="RequestType" value="nae" id="RequestType1" class="rfld" />דו"ח אשראי
+               </label>
+            </div>
+            <div style="white-space: normal; width: 100%">
+               <span id="lbl_CreditAmount" class="label">סכום האשראי</span>
+               <input name="CreditAmount" id="CreditAmount" type="text" class="fld"/>
+            </div>
+            <div style="white-space: normal; width: 100%">
+               <span id="lbl_PlannedStartingDate" class="label">תאריך התחלה מתוכנן</span>
+               <input name="PlannedStartingDate" id="PlannedStartingDate" type="text" autocomplete="off" class="fld docs-date"/>
+            </div>
+            <div style="white-space: normal; width: 100%">
+               <span id="lbl_PaymentFrequencyInAYear" class="label">תשלומים בשנה</span>
+               <input name="PaymentFrequencyInAYear" id="PaymentFrequencyInAYear" type="text" value="12" class="fld"/>
+            </div>
+            <div style="white-space: normal; width: 100%">
+               <span id="lbl_PlannedMonthlyPayment" class="label">סכום תשלום חודשי</span>
+               <input name="PlannedMonthlyPayment" id="PlannedMonthlyPayment" type="text" class="fld"/>
+            </div>
+            <div id="DesignationContainer" class="select-oneContainer">
+                <span id="lbl_Designation" class="label">מטרת האשראי</span>
+                <select name="Designation" id="Designation" class="fld cfld">
+                   <option value="1">עסק
+                   <option value="2">רכב
+                   <option value="3">לימודים
+                   <option value="4">נדל"ן ושיפוצים
+                   <option value="5">צריכה פרטית
+                   <option value="6">השקעה בשוק ההון
+                   <option value="7">כרטיס אשראי
+                   <option value="8">ארגון חוב מחדש
+                   <option value="9">אחר
+                   <option value="10">לא ידוע
+                   <option value="11">הלוואה לתאגיד או בשיתוף עם תאגיד
+                </select>
+            </div>
+            <div id="ApplicationContractTypeContainer" class="select-oneContainer naeOnly">
+                <span id="lbl_ApplicationContractType" class="label">סוג החוזה</span>
+                <select name="ApplicationContractType" id="ApplicationContractType" class="fld cfld">
+                   <option value="UNUTILIZEDCREDITLINE">קו אשראי
+                   <option value="LOAN">הלוואה
+                   <option value="MORTGAGE">משכנתא
+                   <option value="CURRENTACCOUNT">מסגרת עו"ש
+                   <option value="RENEWABLELINEOFCREDIT">מסגרת אשראי מתחדשת
+                   <option value="GUARANTEE">ערבות
+                </select>
+            </div>
+            <span class="divider">&nbsp;</span>
+            <h5>פרטי הלקוח</h5>
+            <div style="white-space: normal; width: 100%">
+               <span id="lbl_FirstName" class="label">שם פרטי<span class="remark">(בעברית)</span></span>
+               <input name="FirstName" id="FirstName" type="text" class="fld"/>
+            </div>
+            <div style="white-space: normal; width: 100%">
+               <span id="lbl_LastName" class="label">שם משפחה<span class="remark">(בעברית)</span></span>
+               <input name="LastName" id="LastName" type="text" class="fld"/>
+            </div>
+            <div style="white-space: normal; width: 100%">
+               <span id="lbl_LatinFirstName" class="label">שם פרטי<span class="remark">(באותיות לטיניות)</span></span>
+               <input name="LatinFirstName" id="LatinFirstName" type="text" class="fld"/>
+            </div>
+            <div style="white-space: normal; width: 100%">
+               <span id="lbl_LatinLastName" class="label">שם משפחה<span class="remark">(באותיות לטיניות)</span></span>
+               <input name="LatinLastName" id="LatinLastName" type="text" class="fld"/>
+            </div>
+            <div style="white-space: normal; width: 100%;">
+               <span id="lbl_IdentityNumberTypeCode" class="label">סוג מספר זיהוי</span>
+               <label class="rfldlbl">
+               <input type="radio" name="IdentityNumberTypeCode" value="1" id="IdentityNumberTypeCode0" class="rfld" checked/>מספר ת.ז.
+               </label>
+               <label class="rfldlbl">
+               <input type="radio" name="IdentityNumberTypeCode" value="2" id="IdentityNumberTypeCode1" class="rfld" />דרכון
+               </label>
+            </div>
+            <div style="white-space: normal; width: 100%">
+               <span id="lbl_IdentityNumber" class="label">מספר זיהוי</span>
+               <input name="IdentityNumber" id="IdentityNumber" type="text" class="fld"/>
+            </div>
+            <div id="CountryCodeContainer" class="select-oneContainer">
+               {% include 'CountryCode.html' %}
+            </div>
+            <div class="naeOnly" style="white-space: normal; width: 100%;">
+               <span id="lbl_Role" class="label">תפקיד הנבדק בחוזה</span>
+               <label class="rfldlbl">
+               <input type="radio" name="Role" value="1" id="Role0" class="rfld" checked/>חייב
+               </label>
+               <label class="rfldlbl">
+               <input type="radio" name="Role" value="2" id="Role1" class="rfld" />ערב
+               </label>
+            </div>
+            <div class="cwaOnly" style="white-space: normal; width: 100%">
+               <label id="lbl_FlagCustomerInformed" class="fullWidth label">
+               <input name="FlagCustomerInformed" id="FlagCustomerInformed" type="checkbox" class="chfld" value="1"/>הלקוח מיודע על בקשת חיווי האשראי
+               </label>
+               <span class="divider">&nbsp;</span>
+            </div>
+            <div class="naeOnly" style="white-space: normal; width: 100%">
+               <label id="lbl_FlagCustomerConsent" class="fullWidth label">
+               <input name="FlagCustomerConsent" id="FlagCustomerConsent" type="checkbox" class="chfld" value="1"/>הלקוח נתן את הסכמתו לבקשת דוח האשראי
+               </label>
+               <span class="divider">&nbsp;</span>
+            </div>
+            <div class="naeOnly" style="white-space: normal; width: 100%">
+               <label id="lbl_FlagCustomerIdentificationWhenCustomerGaveConsentAccordingToRegulations" class="fullWidth label">
+               <input name="FlagCustomerIdentificationWhenCustomerGaveConsentAccordingToRegulations" id="FlagCustomerIdentificationWhenCustomerGaveConsentAccordingToRegulations" type="checkbox" class="chfld" value="1"/>הלקוח זוהה בוודאות בעת מתן הסכמתו לקבלת הדוח
+               </label>
+               <span class="divider">&nbsp;</span>
+            </div>
+            <span class="divider">&nbsp;</span>
+            <h5 id="submitS">הגש</h5>
+         </div>
+      </div>
+      <div class="resp-container">
+         <iframe class="resp-iframe" id="resultFrame" src="" />
+      </div>
+   </body>
+</html>
